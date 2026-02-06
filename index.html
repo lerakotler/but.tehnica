@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Дополнительные стили для главной страницы */
+        /* Дополнительные стили только для главной страницы */
         .hero {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             color: white;
@@ -96,57 +96,12 @@
             box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
         }
         
-        /* Стили для мобильного меню */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        @media (max-width: 992px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                border-radius: 0 0 15px 15px;
-                z-index: 1000;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                width: 100%;
-            }
-            
-            nav ul li a {
-                padding: 15px;
-                border-radius: 8px;
-                margin-bottom: 5px;
-                display: block;
-            }
-            
-            .auth-buttons {
-                display: none;
-            }
-        }
-        
+        /* Адаптивность для главной страницы */
         @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 50px;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -164,10 +119,13 @@
             
             .features {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
+                padding: 0 15px;
             }
         }
     </style>
@@ -185,7 +143,7 @@
         
         <nav>
             <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
                 <li><a href="pages/catalog.html"><i class="fas fa-list"></i> Каталог</a></li>
                 <li><a href="pages/delivery.html"><i class="fas fa-truck"></i> Доставка</a></li>
                 <li><a href="pages/contacts.html"><i class="fas fa-phone"></i> Контакты</a></li>
@@ -202,7 +160,7 @@
             <!-- Загружается через JS -->
         </div>
         
-        <button class="mobile-menu-btn">
+        <button class="mobile-menu-btn" aria-label="Открыть меню">
             <i class="fas fa-bars"></i>
         </button>
     </div>
