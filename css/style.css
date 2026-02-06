@@ -66,7 +66,7 @@ header {
 }
 
 .logo i {
-    color: white;
+    color: var(--secondary);
     font-size: 2rem;
 }
 
@@ -94,7 +94,7 @@ nav a {
 
 nav a:hover, nav a.active {
     background-color: rgba(255,255,255,0.1);
-    color: #2c3e50;
+    color: var(--secondary);
 }
 
 .cart-count, .fav-count {
@@ -2644,98 +2644,6 @@ footer {
 .form-row .form-group {
     flex: 1;
     margin-bottom: 0;
-}
-/* Стили для мобильного меню - объединяем все в одном месте */
-@media (max-width: 992px) {
-    /* Показываем кнопку бургер-меню */
-    .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: white; /* Белый цвет для иконки бургера на темной шапке */
-        cursor: pointer;
-        padding: 5px;
-        margin-left: 10px;
-    }
-    
-    /* Скрываем обычное меню, показываем только по классу .show */
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: white; /* Белый фон для меню */
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        border-radius: 0 0 15px 15px;
-        z-index: 1000;
-        border-top: 2px solid var(--secondary);
-    }
-    
-    nav ul.show {
-        display: flex;
-    }
-    
-    nav ul li {
-        width: 100%;
-    }
-    
-    /* Стили для ссылок в мобильном меню */
-    nav ul li a {
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 5px;
-        display: flex;
-        align-items: center;
-        color: #2c3e50; /* Темный цвет текста на белом фоне */
-        text-decoration: none;
-        transition: var(--transition);
-        border-left: 4px solid transparent;
-    }
-    
-    nav ul li a:hover {
-        background: #f8f9fa;
-        color: var(--secondary);
-        border-left-color: var(--secondary);
-    }
-    
-    nav ul li a.active {
-        color: #3498db;
-        background: rgba(52, 152, 219, 0.1);
-        border-left-color: var(--secondary);
-    }
-    
-    /* Иконки в мобильном меню */
-    nav ul li a i {
-        width: 24px;
-        text-align: center;
-        margin-right: 12px;
-        color: var(--secondary);
-    }
-    
-    /* Счетчики в мобильном меню */
-    nav ul li a .cart-count,
-    nav ul li a .fav-count {
-        background: var(--accent);
-        color: white;
-        font-size: 0.8rem;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto; /* Переносим счетчики вправо */
-        font-weight: 600;
-    }
-    
-    /* Скрываем кнопки авторизации в шапке в мобильной версии */
-    .auth-buttons {
-        display: none;
-    }
 }
 
 /* Теперь исправим медиа-запрос на 768px, чтобы он не переопределял наши стили */
