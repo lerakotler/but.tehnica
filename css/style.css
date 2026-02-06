@@ -2645,9 +2645,9 @@ footer {
     flex: 1;
     margin-bottom: 0;
 }
-/* В конце файла style.css замените весь медиа-запрос для 768px и добавьте правильные стили */
-
+/* Стили для мобильного меню - объединяем все в одном месте */
 @media (max-width: 992px) {
+    /* Показываем кнопку бургер-меню */
     .mobile-menu-btn {
         display: block;
         background: none;
@@ -2656,8 +2656,10 @@ footer {
         color: white; /* Белый цвет для иконки бургера на темной шапке */
         cursor: pointer;
         padding: 5px;
+        margin-left: 10px;
     }
     
+    /* Скрываем обычное меню, показываем только по классу .show */
     nav ul {
         display: none;
         position: absolute;
@@ -2667,9 +2669,10 @@ footer {
         background-color: white; /* Белый фон для меню */
         flex-direction: column;
         padding: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         border-radius: 0 0 15px 15px;
         z-index: 1000;
+        border-top: 2px solid var(--secondary);
     }
     
     nav ul.show {
@@ -2680,31 +2683,36 @@ footer {
         width: 100%;
     }
     
+    /* Стили для ссылок в мобильном меню */
     nav ul li a {
         padding: 15px;
         border-radius: 8px;
         margin-bottom: 5px;
-        display: block;
+        display: flex;
+        align-items: center;
         color: #2c3e50; /* Темный цвет текста на белом фоне */
         text-decoration: none;
         transition: var(--transition);
+        border-left: 4px solid transparent;
     }
     
     nav ul li a:hover {
         background: #f8f9fa;
         color: var(--secondary);
+        border-left-color: var(--secondary);
     }
     
     nav ul li a.active {
         color: #3498db;
         background: rgba(52, 152, 219, 0.1);
+        border-left-color: var(--secondary);
     }
     
     /* Иконки в мобильном меню */
     nav ul li a i {
         width: 24px;
         text-align: center;
-        margin-right: 10px;
+        margin-right: 12px;
         color: var(--secondary);
     }
     
@@ -2714,49 +2722,25 @@ footer {
         background: var(--accent);
         color: white;
         font-size: 0.8rem;
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin-left: 8px;
+        margin-left: auto; /* Переносим счетчики вправо */
         font-weight: 600;
     }
     
+    /* Скрываем кнопки авторизации в шапке в мобильной версии */
     .auth-buttons {
-        display: none; /* Скрываем кнопки авторизации в мобильной версии */
-    }
-    
-    /* Другие адаптивные стили для 992px */
-    .product-detail-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .account-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .reviews-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .cart-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .contacts-grid,
-    .checkout-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        grid-template-columns: 1fr;
+        display: none;
     }
 }
 
+/* Теперь исправим медиа-запрос на 768px, чтобы он не переопределял наши стили */
 @media (max-width: 768px) {
-    /* Убираем отсюда стили для мобильного меню, они уже в 992px */
+    /* Убираем отсюда стили для мобильного меню, которые могут конфликтовать */
     
     /* Оставляем только другие адаптивные стили */
     .catalog-controls {
@@ -2791,6 +2775,14 @@ footer {
         padding: 40px 20px;
     }
     
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
     .admin-stats {
         grid-template-columns: 1fr;
     }
@@ -2805,8 +2797,13 @@ footer {
     }
     
     nav ul li a {
-        padding: 12px;
+        padding: 12px 15px;
         font-size: 0.95rem;
+    }
+    
+    nav ul li a i {
+        width: 22px;
+        margin-right: 10px;
     }
 }
 
@@ -2852,7 +2849,7 @@ footer {
     }
     
     nav ul li a {
-        padding: 10px;
+        padding: 10px 12px;
         font-size: 0.9rem;
     }
     
