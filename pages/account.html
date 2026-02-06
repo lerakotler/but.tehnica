@@ -662,13 +662,7 @@
             updateCartCount();
             updateFavCount();
             loadAccountData();
-            
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('nav ul');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.classList.toggle('show');
-            });
+
             
             // Инициализация вкладок
             document.querySelectorAll('.account-tab').forEach(tab => {
