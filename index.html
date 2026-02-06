@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -94,10 +95,84 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
         }
+        
+        /* Стили для мобильного меню */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border-radius: 0 0 15px 15px;
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav ul li a {
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 5px;
+                display: block;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-<!-- Шапка -->
 <!-- Шапка -->
 <header>
     <div class="container header-container">
@@ -135,15 +210,15 @@
 
     <!-- Основной контент -->
     <main class="container">
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>ТехноДом - техника для вашего комфорта</h1>
-            <p>Более 1000 моделей бытовой техники от ведущих мировых производителей с гарантией и доставкой по всей России</p>
-            <a href="pages/catalog.html" class="btn-primary">Перейти в каталог</a>
-        </div>
-    </div>
-</section>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>ТехноДом - техника для вашего комфорта</h1>
+                    <p>Более 1000 моделей бытовой техники от ведущих мировых производителей с гарантией и доставкой по всей России</p>
+                    <a href="pages/catalog.html" class="btn-primary">Перейти в каталог</a>
+                </div>
+            </div>
+        </section>
 
         <section class="features">
             <div class="feature-card">
@@ -224,42 +299,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script src="js/script.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-    updateFavCount();
-    initAuth();
-    loadFeaturedProducts();
-    
-    // Мобильное меню
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('nav ul');
-    
-    if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            nav.classList.toggle('show');
-            this.classList.toggle('active');
-        });
-        
-        // Закрытие мобильного меню при клике вне его
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                nav.classList.remove('show');
-                mobileMenuBtn.classList.remove('active');
-            }
-        });
-        
-        // Закрытие меню при клике на ссылку
-        nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                nav.classList.remove('show');
-                mobileMenuBtn.classList.remove('active');
-            });
-        });
-    }
-});
-</script>
 </body>
 </html>
