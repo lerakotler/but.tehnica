@@ -257,5 +257,42 @@
     </footer>
 
     <script src="js/script.js"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    updateFavCount();
+    initAuth();
+    loadFeaturedProducts();
+    
+    // Мобильное меню
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav ul');
+    
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('show');
+            this.classList.toggle('active');
+        });
+        
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                nav.classList.remove('show');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+        
+        // Закрытие меню при клике на ссылку
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('show');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
